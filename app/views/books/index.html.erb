@@ -1,0 +1,24 @@
+
+
+<h1>Listing books</h1><%= link_to 'New Book', new_book_path %>
+
+<% @books.each do |book| %>      
+<h2><%= book.title %></h2>
+<h3>Author: <%= book.author %></h3>   
+<h4>Price: <%= book.price %></h4>
+<h5>ISBN-10: <%= book.isbn10 %><h5>
+<h5>ISBN-13: <%= book.isbn13 %></h5>
+<% unless book.total_pages.nil? %>
+  <h5>Total Pages: <%= book.total_pages%></h5>
+<%end%> 
+<h5>Publisher: <%= book.publisher%></h5>
+<h5>Language: <%= book.language %></h5>
+<h5>Shipping Weight: <%= book.ship_weight %> lbs</h5>
+<%= link_to 'Show', book %>
+<%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<br>
+<%= ship_weight_list(@books) %>
+<%= JSON.pretty_generate(@boxes).html_safe %>
+

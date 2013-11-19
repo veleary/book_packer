@@ -1,0 +1,29 @@
+Once your solution is completed please add an EXTENSIONS.txt file to your solution that notes how your application could be extended to handle the following:
+
+1.) Domains beyond Amazon.com
+This solution can be expanded by adding a rake task for other domains. Each rake task would specify which CSS selectors to choose for which data for each domain used. To be more efficient you would want to give the application a set of key words and URLs to match up and find. You could still use the rake tasks for this but instead of parsing through these 20 files you would give it a set of URLs and key words to search each URL.
+
+2.) Products beyond just simply books.
+Again, you would have another rake task that would be separated by product type and possibly domain. You would still use the same set up as I mentioned on the first question but your key words that you would search for would be different so you would set up a set of search words and URLs and have each URL search each word in your list. 
+
+
+3.) Parse and ship 2,000,000 books (in a reasonably time frame; e.g., polynomial time) instead of merely 20.
+You would want to minimize the use of arrays and stick with hashes to search through faster. Also, I used some regular expressions for parsing but this could be expanded upon to include more since parsing with regular expressions is very fast in ruby. There are a few ruby gems that takes streaming JSON and can parse through very fast such as yajl-ruby. You would also want to have the shipping algorithm working at the same time as each new HTML book is being parsed, having that combination working together in parallel instead of sequential would be an important time saver. 
+
+
+Couple Notes about the currently functioning app
+
+The HTML documents although were from the same domain (Amazon) they had different CSS selectors for some of the information. Therefore, since it was a small number of books I was able to fix sthese issues however, on a larger scale you wouldn't want to do that and you would need to find a more efficient way to extract that information. Like the key word search I mentioned from questions 1 and 2 instead of relying on the CSS selectors that could be different across multiple pages.
+
+Right now the the logic is in the controller helper because I called those methods in the view so I could have viewable pages (not just on the backend). This would be moved to the model in a real application. 
+
+The shipping algorithm is not optimized, right now it just goes in a random book order so this could lead to inefficient shipping. So the shipping algorithm would ideally ship the most books with the smallest number of boxes (which currently it does not do).
+
+I had a lot of fun working on this and if you have any questions, please feel free to contact me. 
+
+Thanks!
+
+
+
+
+

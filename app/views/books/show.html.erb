@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @book.title %></h2>
+<h3>Author: <%= @book.author %></h3>   
+<h4>Price: $<%= @book.price %></h4>
+<h5>ISBN-10: <%= @book.isbn10 %><h5>
+<h5>ISBN-13: <%= @book.isbn13 %></h5>
+<h5>Total Pages: <%= @book.total_pages%></h5>
+<h5>Publisher: <%= @book.publisher%></h5>
+<h5>Language: <%= @book.language %></h5>
+<h5>Shipping Weight: <%= @book.ship_weight %> lbs</h5>
+
+<%= link_to 'Back', books_path %>
